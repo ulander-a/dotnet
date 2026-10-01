@@ -16,10 +16,10 @@
 Official docs per day. Background: JS/Node + PHP — the C# tour's JS/TS tips page is the fastest way in.
 
 ### Day 1 — C# + .NET basics
-- [_] [A tour of C#: tips for JavaScript/TypeScript developers](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tips-for-javascript-developers)
-- [_] [Language Integrated Query (LINQ)](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [_] [Generic type parameters](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-type-parameters) · [Generics in .NET](https://learn.microsoft.com/en-us/dotnet/standard/generics/)
-- [_] [Interfaces — define behavior for multiple types](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces)
+- [x] [A tour of C#: tips for JavaScript/TypeScript developers](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tips-for-javascript-developers)
+- [x] [Language Integrated Query (LINQ)](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
+- [x] [Generic type parameters](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-type-parameters) · [Generics in .NET](https://learn.microsoft.com/en-us/dotnet/standard/generics/)
+- [x] [Interfaces — define behavior for multiple types](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces)
 - [_] [Asynchronous programming in C#](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/) · [Task asynchronous programming model](https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/task-asynchronous-programming-model)
 - [_] [Tutorial: Nullable and non-nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/nullable-reference-types)
 - [_] [.NET project SDK overview (.csproj)](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/overview)
