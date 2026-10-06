@@ -32,7 +32,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 ### Day 2 — C# in practice
 *Deliverable: a console app that fetches and deserializes JSON from a real API, uses DI + configuration via the Generic Host, and has a passing `dotnet test` project.*
 - [x] [Tutorial: Make HTTP requests in a .NET console app](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/console-webapiclient)
-- [ ] [.NET Generic Host](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)
+- [x] [.NET Generic Host](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)
 - [ ] [Tutorial: Use dependency injection in .NET](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection/usage) (DI is built in and everywhere in .NET; learn it here, before ASP.NET)
 - [ ] [Unit testing C# with xUnit and `dotnet test`](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-xunit)
 
