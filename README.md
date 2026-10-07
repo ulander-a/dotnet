@@ -41,7 +41,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [ASP.NET Core fundamentals overview](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/)
 - [x] [APIs overview: minimal APIs vs controllers](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/apis)
 - [x] [Tutorial: Create a minimal API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api) · [Minimal APIs quick reference](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis)
-- [ ] [Tutorial: Create a controller-based web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) · [Create web APIs with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
+- [x] [Tutorial: Create a controller-based web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) · [Create web APIs with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
 - [ ] [Routing in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing)
 - [ ] [OpenAPI support in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/overview)
 
