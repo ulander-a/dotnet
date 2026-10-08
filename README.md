@@ -42,8 +42,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [APIs overview: minimal APIs vs controllers](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/apis)
 - [x] [Tutorial: Create a minimal API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api) · [Minimal APIs quick reference](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis)
 - [x] [Tutorial: Create a controller-based web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) · [Create web APIs with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
-- [ ] [Routing in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing)
-- [ ] [OpenAPI support in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/overview)
+- [x] [Routing in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing)
+- [x] [OpenAPI support in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/overview)
 
 ### Day 4 — ASP.NET Core: the host
 *Deliverable: the minimal API with a typed options class, a secret in User Secrets, custom middleware, ProblemDetails errors, and one `WebApplicationFactory` integration test.*
