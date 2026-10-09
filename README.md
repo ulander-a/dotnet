@@ -47,8 +47,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 
 ### Day 4 — ASP.NET Core: the host
 *Deliverable: the minimal API with a typed options class, a secret in User Secrets, custom middleware, ProblemDetails errors, and one `WebApplicationFactory` integration test.*
-- [ ] [Dependency injection in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) (focus: singleton vs scoped vs transient)
-- [ ] [ASP.NET Core middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
+- [x] [Dependency injection in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) (focus: singleton vs scoped vs transient)
+- [x] [ASP.NET Core middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
 - [ ] [Configuration in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) · [Options pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
 - [ ] [Safe storage of app secrets in development (User Secrets)](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) (replaces `.env`)
 - [ ] [Runtime environments](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
