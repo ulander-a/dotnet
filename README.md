@@ -50,11 +50,11 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [Dependency injection in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) (focus: singleton vs scoped vs transient)
 - [x] [ASP.NET Core middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
 - [x] [Configuration in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) · [Options pattern](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
-- [ ] [Safe storage of app secrets in development (User Secrets)](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) (replaces `.env`)
-- [ ] [Runtime environments](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
-- [ ] [Logging in .NET and ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/)
-- [ ] [Handle errors in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling)
-- [ ] [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests)
+- [x] [Safe storage of app secrets in development (User Secrets)](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) (replaces `.env`)
+- [x] [Runtime environments](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
+- [x] [Logging in .NET and ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/)
+- [x] [Handle errors in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling)
+- [x] [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests)
 
 ### Day 5 — EF Core + SQL
 *Deliverable: the Day 3–4 API on SQL Server, with two related entities and migrations applied via `dotnet ef`.*
