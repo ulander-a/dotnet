@@ -11,14 +11,12 @@ Location: `.claude/skills/summarizing-dotnet-docs/SKILL.md` (single file, no scr
 ## Behavior
 1. **Fetch** the URL with WebFetch. Tutorials with numbered steps: summarize the whole page. Long reference pages: summarize only what the focus asks for. Do not follow links unless asked.
 2. **Output shape (fixed order):**
-   - Introduction: two paragraphs (at most five sentences each) on what the concept is, the problem it solves, and how it works end to end, defining each term on first use
-   - Mental model, mapped to the nearest PHP/Node equivalent (say "no direct equivalent" when there is none)
-   - Where it differs from what a PHP/Node dev expects (3 bullets)
-   - Key code: 1-2 minimal snippets
-   - Not covered: topics skipped or outside the focus
-3. **Tone:** skip programming basics but explain every .NET/Azure concept the page assumes; about 450 words plus code.
+   - **Overview:** What, Why, How, a few sentences each, defining every term in plain words
+   - **Technical summary:** a terminology table (Term, Meaning, PHP/Node equivalent; roughly eight rows, "none" when there is no equivalent), then "Similar to PHP/Node" and "Different from PHP/Node" bullets (about three each), then 1-2 minimal code snippets
+   - **Not covered:** topics skipped or outside the focus
+3. **Tone:** skip programming basics but explain every .NET/Azure concept the page assumes.
 
-*Revised 2026-10-13 after first use:* the original design looked the URL up in `README.md` and ended with a "for your deliverable" section. The per-page deliverable lines were agent-generated, not part of the plan, so both the lookup and the section were removed; the one-line gist became the fuller introduction.
+*Revised 2026-10-13 after first use:* the original design looked the URL up in `README.md`, ended with a "for your deliverable" section, and opened with a one-line gist. The per-page deliverable lines were agent-generated, not part of the plan, so the lookup and the section were removed. The summary was then restructured into an Overview (what/why/how) plus a Technical summary with a terminology and equivalents table. Count limits in the skill are approximate: test runs overshot them by about one item.
 
 ## Reference content
 A small table of recurring equivalents inside SKILL.md (e.g. NuGet ~ npm/Composer; appsettings + User Secrets ~ .env; middleware ~ Express middleware; DI container ~ Laravel service container; `Task` ~ Promise). Not an exhaustive glossary.
