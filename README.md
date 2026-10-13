@@ -60,8 +60,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 *Deliverable: the Day 3–4 API on SQL Server, with two related entities and migrations applied via `dotnet ef`.*
 - [x] [EF Core overview](https://learn.microsoft.com/en-us/ef/core/)
 - [x] [Tutorial: Get started with EF Core](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app)
-- [ ] [Run SQL Server in a Docker container](https://learn.microsoft.com/en-us/sql/linux/install-upgrade/quickstart-install-docker)
-- [ ] [EF Core tools reference (`dotnet ef`)](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+- [x] [Run SQL Server in a Docker container](https://learn.microsoft.com/en-us/sql/linux/install-upgrade/quickstart-install-docker)
+- [x] [EF Core tools reference (`dotnet ef`)](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 - [ ] [DbContext lifetime, configuration, and initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/)
 - [ ] [Introduction to relationships](https://learn.microsoft.com/en-us/ef/core/modeling/relationships)
 - [ ] [Migrations overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/)
