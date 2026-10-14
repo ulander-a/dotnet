@@ -62,10 +62,10 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [Tutorial: Get started with EF Core](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app)
 - [x] [Run SQL Server in a Docker container](https://learn.microsoft.com/en-us/sql/linux/install-upgrade/quickstart-install-docker)
 - [x] [EF Core tools reference (`dotnet ef`)](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
-- [ ] [DbContext lifetime, configuration, and initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/)
-- [ ] [Introduction to relationships](https://learn.microsoft.com/en-us/ef/core/modeling/relationships)
-- [ ] [Migrations overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/)
-- [ ] [SQL Server database provider](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/)
+- [x] [DbContext lifetime, configuration, and initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/)
+- [x] [Introduction to relationships](https://learn.microsoft.com/en-us/ef/core/modeling/relationships)
+- [x] [Migrations overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/)
+- [x] [SQL Server database provider](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/)
 
 ### Day 6 — Azure fundamentals
 *Deliverable: an ASP.NET Core + Azure SQL app running on App Service, deployed with `azd`, then torn down with `azd down`.*
