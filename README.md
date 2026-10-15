@@ -70,8 +70,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 ### Day 6 — Azure fundamentals
 *Deliverable: an ASP.NET Core + Azure SQL app running on App Service, deployed with `azd`, then torn down with `azd down`.*
 - [x] [Install the Azure CLI on Windows](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) · [Install the Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
-- [ ] [What is the Azure Developer CLI (`azd`)?](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview)
-- [ ] [Authenticate .NET apps to Azure services](https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/) · [Local dev with developer accounts (`DefaultAzureCredential`)](https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/local-development-dev-accounts)
+- [x] [What is the Azure Developer CLI (`azd`)?](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview)
+- [x] [Authenticate .NET apps to Azure services](https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/) · [Local dev with developer accounts (`DefaultAzureCredential`)](https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/local-development-dev-accounts)
 - [ ] [Azure App Service overview](https://learn.microsoft.com/en-us/azure/app-service/overview)
 - [ ] [What is Azure SQL Database?](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
 - [ ] [Tutorial: Deploy an ASP.NET Core + Azure SQL app to App Service](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app)

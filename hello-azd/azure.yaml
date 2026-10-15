@@ -24,7 +24,7 @@ services:
     host: containerapp
     docker:
       path: ./Dockerfile
-      remoteBuild: true
+      remoteBuild: false
 #   ## An example for a NodeJS API, located in src/api.
 #   nodejs-api:
 #     language: js
@@ -58,7 +58,7 @@ hooks:
         Write-Host "Waiting for the application to become ready..."
         for ($attempt = 1; $attempt -le 90; $attempt++) {
           try {
-            $response = Invoke-WebRequest -Uri $healthUrl -TimeoutSec 5
+            $response = Invoke-WebRequest -Uri $healthUrl -TimeoutSec 5 -UseBasicParsing
             if ($response.StatusCode -eq 200) {
               Write-Host "Application is ready: $Env:AZURE_CONTAINER_APP_ENDPOINT"
               exit 0
