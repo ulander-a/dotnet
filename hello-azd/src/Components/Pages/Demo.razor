@@ -1,0 +1,171 @@
+﻿@page "/demo"
+
+@inject ITicketStorageService TicketStorageService
+@inject TicketSubmissionService TicketSubmissionService
+@inject ILogger<Demo> Logger
+
+<MudGrid>
+    <MudItem xs="12" sm="8">
+        <MudItem sm="12">
+            <MudText Typo="Typo.h2" GutterBottom="true">Sample ticket manager</MudText>
+            <MudDivider Class="my-6" />
+        </MudItem>
+        <MudPaper Class="my-6 pa-6">
+            The azd template deployed this sample app to Azure Container Apps. Submit the form with an optional attachment up to 2 MB. Ticket data is stored in Table Storage, and attachments are stored in Blob Storage. This demo is public, so don't submit sensitive data.
+        </MudPaper>
+        <MudPaper Class="pa-4">
+            <EditForm Model="_ticket" OnValidSubmit="SubmitAsync">
+                <MudText Typo="Typo.h4" GutterBottom="true">Submit a new ticket</MudText><MudDivider />
+                <DataAnnotationsValidator />
+                <MudTextField Label="Title" MaxLength="100" @bind-Value="_ticket.Title" For="@(() => _ticket.Title)" />
+                <MudTextField Label="Description" MaxLength="1000" Class="mt-3" @bind-Value="_ticket.Description" For="@(() => _ticket.Description)" />
+                <MudTextField Label="Notes" MaxLength="1000" Class="mt-3 mb-8" @bind-Value="_ticket.Notes" For="@(() => _ticket.Notes)" />
+                <MudFileUpload Class="mt-3 mb-6" OnFilesChanged="SetFile" T="IBrowserFile">
+                    <CustomContent Context="upload">
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Primary"
+                                   OnClick="@upload.OpenFilePickerAsync"
+                                   StartIcon="@Icons.Material.Filled.CloudUpload">
+                            Upload Attachment
+                        </MudButton>
+                        <MudText>@_ticket.Attachment?.Name</MudText>
+                    </CustomContent>
+                </MudFileUpload>
+                @if (!_isSubmitting)
+                {
+                    <MudButton ButtonType="ButtonType.Submit" Class="mt-4 mb-4" Variant="Variant.Filled" Color="Color.Primary">Submit</MudButton>
+                }
+                else
+                {
+                    <div><MudProgressCircular Color="Color.Primary" Indeterminate="true" /></div>
+                }
+                <div>
+                    @if (_submitSucceeded)
+                    {
+                        <MudText Color="Color.Success">Your ticket was submitted successfully!</MudText>
+                    }
+                    else if (!string.IsNullOrEmpty(_errorMessage))
+                    {
+                        <MudText Color="@Color.Error">
+                            <ValidationSummary />
+                            @_errorMessage
+                        </MudText>
+                    }
+                </div>
+            </EditForm>
+        </MudPaper>
+        @if (_tickets.Count > 0)
+        {
+            <MudPaper Class="mt-12 pa-6">
+                <MudText Typo="Typo.h4" GutterBottom="true">Submitted tickets</MudText>
+                <MudDivider />
+                <MudTable Striped="true" Bordered="true" Items="@_tickets" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+                    <HeaderContent>
+                        <MudTh>Nr</MudTh>
+                        <MudTh>Title</MudTh>
+                        <MudTh>Description</MudTh>
+                        <MudTh>Notes</MudTh>
+                        <MudTh>Attachment</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Nr">@context.Id</MudTd>
+                        <MudTd DataLabel="Title">@context.Title</MudTd>
+                        <MudTd DataLabel="Description">@context.Description</MudTd>
+                        <MudTd DataLabel="Notes">@context.Notes</MudTd>
+                        <MudTd DataLabel="Attachment">@context.AttachmentName</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </MudPaper>
+        }
+        else if (_isLoadingTickets)
+        {
+            <MudPaper Class="mt-12 pa-6">
+                <MudProgressCircular Color="Color.Primary" Indeterminate="true" /> Loading tickets...
+            </MudPaper>
+        }
+        else
+        {
+            <MudPaper Class="mt-12 pa-6">
+                No tickets have been submitted yet.
+            </MudPaper>
+        }
+
+    </MudItem>
+</MudGrid>
+@code {
+    private const string PartitionKey = "helpdesk";
+    private readonly List<SupportTicket> _tickets = [];
+    private SupportTicket _ticket = new();
+    private bool _isSubmitting;
+    private bool _isLoadingTickets;
+    private bool _submitSucceeded;
+    private string? _errorMessage;
+
+    private void SetFile(InputFileChangeEventArgs eventArgs)
+    {
+        var file = eventArgs.File;
+        _submitSucceeded = false;
+        if (file.Size > AttachmentStorageService.MaxAttachmentSize)
+        {
+            _ticket.Attachment = null;
+            _errorMessage = "Attachments must be 2 MB or smaller.";
+            return;
+        }
+
+        _ticket.Attachment = file;
+        _errorMessage = null;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isLoadingTickets = true;
+        try
+        {
+            _tickets.AddRange(await TicketStorageService.GetTicketsAsync(PartitionKey));
+        }
+        catch (AttachmentTooLargeException exception)
+        {
+            Logger.LogWarning(exception, "Attachment exceeded the allowed size");
+            _errorMessage = exception.Message;
+        }
+        catch (IOException exception)
+        {
+            Logger.LogWarning(exception, "Attachment upload could not be read");
+            _errorMessage = "The attachment could not be uploaded. Make sure it is 2 MB or smaller.";
+        }
+        catch (Exception exception)
+        {
+            Logger.LogError(exception, "Failed to load support tickets");
+            _errorMessage = "Unable to load tickets. Please try again later.";
+        }
+        finally
+        {
+            _isLoadingTickets = false;
+        }
+    }
+
+    private async Task SubmitAsync()
+    {
+        _isSubmitting = true;
+        _submitSucceeded = false;
+        _errorMessage = null;
+
+        try
+        {
+            var item = await TicketSubmissionService.SubmitAsync(_ticket);
+
+            _tickets.Add(item);
+            _ticket = new SupportTicket();
+            _submitSucceeded = true;
+        }
+        catch (Exception exception)
+        {
+            Logger.LogError(exception, "Failed to submit a support ticket");
+            _errorMessage = "Unable to submit the ticket. Please try again later.";
+        }
+        finally
+        {
+            _isSubmitting = false;
+        }
+    }
+} 
