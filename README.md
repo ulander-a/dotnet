@@ -76,8 +76,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [What is Azure SQL Database?](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
 - [x] [Tutorial: Deploy an ASP.NET Core + Azure SQL app to App Service](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app)
 - [x] [Azure Key Vault overview](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) · [Key Vault configuration provider](https://ohlearn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration)
-- [ ] [Application Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) · [Enable OpenTelemetry in Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable)
-- [ ] Optional skim: [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) · [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+- [x] [Application Insights overview](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) · [Enable OpenTelemetry in Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable)
+- [x] Optional skim: [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/) · [Azure Service Bus](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 
 ### Day 7 — Entra ID
 *Deliverable: a protected web API that returns 401 without a token and accepts both a user token (scope) and an app token (app role), tested with cURL.*
