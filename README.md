@@ -83,8 +83,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 *Deliverable: a protected web API that returns 401 without a token and accepts both a user token (scope) and an app token (app role), tested with cURL.*
 - [x] [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols)
 - [x] [Access tokens](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens)
-- [ ] [Permissions and consent: delegated vs application](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview)
-- [ ] [Quickstart: Register an app with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
+- [x] [Permissions and consent: delegated vs application](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview)
+- [x] [Quickstart: Register an app with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
 - [ ] [Overview of ASP.NET Core authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/) · [Configure JWT bearer authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/configure-jwt-bearer-authentication)
 - [ ] [Microsoft Identity Web documentation](https://learn.microsoft.com/en-us/entra/msidweb/)
 - [ ] [Quickstart: Register and expose a protected web API (scopes + app roles)](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-web-api-dotnet-protect-app)
