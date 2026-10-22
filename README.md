@@ -87,7 +87,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [Quickstart: Register an app with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
 - [x] [Overview of ASP.NET Core authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/) · [Configure JWT bearer authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/configure-jwt-bearer-authentication)
 - [x] [Microsoft Identity Web documentation](https://learn.microsoft.com/en-us/entra/msidweb/)
-- [ ] [Quickstart: Register and expose a protected web API (scopes + app roles)](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-web-api-dotnet-protect-app)
+- [x] [Quickstart: Register and expose a protected web API (scopes + app roles)](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-web-api-dotnet-protect-app)
 - [ ] [Tutorial: Build and secure an ASP.NET Core web API](https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-web-api-dotnet-core-build-app) · [Call it with cURL](https://learn.microsoft.com/en-us/entra/identity-platform/howto-call-a-web-api-with-curl)
 - [ ] [Configure protected web API apps](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-protected-web-api-app-configuration)
 - [ ] [Managed identities for Azure resources — overview](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
