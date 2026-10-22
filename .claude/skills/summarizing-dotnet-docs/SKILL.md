@@ -15,8 +15,8 @@ Read-only: never write any file.
 ## Steps
 
 1. Fetch the URL with WebFetch, prompting it for the full page text with headings in order and every code block verbatim. If WebFetch reports a redirect, fetch the redirect target once. If the fetch fails or the page is empty, say so and stop; never summarize from memory. If the content looks cut off, note that and name the last heading you saw.
-2. List the page's topics privately; the list is never shown. With a focus, mark each topic in or out and write every section below from the "in" topics alone. With no focus, a tutorial is covered whole and a reference page by its main concepts. The out-of-focus or skipped topics become the closing `Not covered:` line. Do not follow links unless asked.
-3. Answer in exactly this shape. Everything comes from the page except PHP/Node analogies; mark anything else as "not on the page".
+2. List the page's topics privately. With a focus, mark each topic in or out and write every section below from the "in" topics alone; the first sentence of What states the focus. With no focus, a tutorial is covered whole and a reference page by its main concepts. The size limits below always apply: for a long tutorial, compress the steps into the How flow instead of lengthening any section. The out-of-focus or skipped topics become the closing `Not covered:` line. Do not follow links unless asked.
+3. Answer in exactly this shape. Facts come from the page. You may add short background for concepts the page assumes, and PHP/Node analogies; tag background that is not on the page with "(background)". Keep new terms to a minimum: introduce a term only if the reader needs it to follow the page, define it once in a few words, and prefer a plain-word description over a new name. Never show your working (topic list, rankings).
 
    ## Overview
    **What:** two or three sentences on what the concept is.
@@ -24,14 +24,20 @@ Read-only: never write any file.
    **How:** two or three sentences on how it works, from start to finish, as one flow.
 
    ## Technical summary
-   **Terminology:** a table with the columns Term, Meaning (ten words or fewer), PHP/Node equivalent. One row per term the page introduces, at most eight rows, most important first. Write "none" in the last column when there is no equivalent.
+   **Terminology:** a table with the columns Term, Meaning (ten words or fewer), PHP/Node equivalent. One row per term the page introduces; if there are more than eight, keep the eight most important, most important first. Write "none" in the last column when there is no equivalent.
 
    **Similar to PHP/Node:** up to three bullets, one sentence each, on what carries over.
-   **Different from PHP/Node:** up to three bullets, one sentence each, on what would surprise someone with PHP/Node habits (for C# pages: lifetimes, async, nullability, compile-time vs runtime; for Azure, Entra and Graph pages: auth and consent model, tenancy, secrets and config, tooling and deployment). Rank by surprise and write the top ones.
+   **Different from PHP/Node:** up to three bullets, one sentence each, on what would surprise someone with PHP/Node habits (for C# pages: lifetimes, async, nullability, compile-time vs runtime; for Azure, Entra and Graph pages: auth and consent model, tenancy, secrets and config, tooling and deployment; for other pages, whichever of these categories apply). Rank by surprise and write the top ones.
 
    **Key code:** one or two minimal snippets, not the full tutorial.
 
-   The answer is these sections and nothing else. Define every term in the Overview in plain words, and put its table row's PHP/Node equivalent in the table, not the Overview. Page details that fit no section are left out; the ranking is never shown. A single line above Overview appears only when the content looks cut off. The `Not covered:` line closes the answer whenever topics were skipped.
+   ## TLDR;
+   Literally `## TLDR;`. A recap for someone who has just read the page, as opposed to the Overview, which prepares them for it. One to three sentences, only the absolutely most important concepts, in plain words and the order a developer would use them. It may reuse terms already defined, but adds no new ones and no detail from the table or snippets.
+
+   ## Quiz
+   A self-check so the reader can tell whether they understood the page. Three numbered questions, then a `---` divider, then the line `Answers (attempt the questions first):` and three numbered one-sentence answers matching the questions. Each question requires recalling or applying an idea, not recognizing a phrase from the summary: ask "what happens if...", "which would you use for... and why", or "how does this differ from what you would do in PHP/Node". Pick the three ideas the reader most needs to have grasped, with at least one on a "Different from PHP/Node" point. Do not repeat the TLDR; wording, and use no new terms.
+
+   Output only the sections above, in this order, plus two exceptions: a one-line note above Overview when the content looks cut off, and a closing `Not covered: a, b, c` line (comma-separated, at most eight items, no explanations) whenever topics were skipped. Page details that fit no section are left out. In the Overview, use plain words and define a term the first time it appears; put PHP/Node comparisons in the table and the Similar/Different bullets, not the Overview.
 
 ## Common equivalents
 
