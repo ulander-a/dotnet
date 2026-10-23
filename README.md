@@ -89,8 +89,8 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [Microsoft Identity Web documentation](https://learn.microsoft.com/en-us/entra/msidweb/)
 - [x] [Quickstart: Register and expose a protected web API (scopes + app roles)](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-web-api-dotnet-protect-app)
 - [x] [Tutorial: Build and secure an ASP.NET Core web API](https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-web-api-dotnet-core-build-app) · [Call it with cURL](https://learn.microsoft.com/en-us/entra/identity-platform/howto-call-a-web-api-with-curl)
-- [ ] [Configure protected web API apps](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-protected-web-api-app-configuration)
-- [ ] [Managed identities for Azure resources — overview](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+- [x] [Configure protected web API apps](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-protected-web-api-app-configuration)
+- [x] [Managed identities for Azure resources — overview](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
 
 ### Day 8 — Microsoft Graph
 *Deliverable: a console app that reads your mail/profile (delegated) and lists users or sites (app-only), with permissions you can justify.*
