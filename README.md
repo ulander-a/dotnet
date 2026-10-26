@@ -96,7 +96,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 *Deliverable: a console app that reads your mail/profile (delegated) and lists users or sites (app-only), with permissions you can justify.*
 - [x] [Microsoft Graph overview](https://learn.microsoft.com/en-us/graph/overview)
 - [x] [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) (try queries before writing code)
-- [ ] [Microsoft Graph SDK overview](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview) · [Install a Microsoft Graph SDK](https://learn.microsoft.com/en-us/graph/sdks/sdk-installation)
+- [x] [Microsoft Graph SDK overview](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview) · [Install a Microsoft Graph SDK](https://learn.microsoft.com/en-us/graph/sdks/sdk-installation)
 - [ ] [Build .NET apps with Microsoft Graph (delegated tutorial)](https://learn.microsoft.com/en-us/graph/tutorials/dotnet)
 - [ ] [Build .NET apps with Microsoft Graph and app-only auth](https://learn.microsoft.com/en-us/graph/tutorials/dotnet-app-only)
 - [ ] [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference)
