@@ -4,3 +4,6 @@ obj/
 *.user
 *.suo
 questions.md
+local/
+.claude
+CLAUDE.md
