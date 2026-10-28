@@ -86,7 +86,7 @@ class GraphHelper
     public static async Task SendMailAsync(string subject, string body, string recipient)
     {
         // Ensure client isn't null
-        _ = userClient ??
+        if (userClient is null)
             throw new NullReferenceException("Graph has not been initialized for user auth");
 
         // Create a new message
@@ -117,5 +117,23 @@ class GraphHelper
             {
                 Message = message,
             });
+    }
+
+    public static Task<DirectoryObjectCollectionResponse?> GetMemberOfAsync()
+    {
+        // Ensure client isn't null
+        if (userClient is null)
+            throw new NullReferenceException("Graph has not been initialized for user auth");
+
+        return userClient.Me.MemberOf.GetAsync();
+    }
+
+        public static Task<DirectoryObjectCollectionResponse?> GetOwnedObjectsAsync()
+    {
+        // Ensure client isn't null
+        if (userClient is null)
+            throw new NullReferenceException("Graph has not been initialized for user auth");
+
+        return userClient.Me.OwnedObjects.GetAsync();
     }
 }

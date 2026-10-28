@@ -1,4 +1,5 @@
 ﻿using GraphTutorial;
+using Microsoft.Graph.Models;
 
 Console.WriteLine(".NET Graph Tutorial\n");
 
@@ -170,5 +171,28 @@ async Task SendMailAsync()
 
 async Task MakeGraphCallAsync()
 {
-    // TODO
+    var userTask = GraphHelper.GetUserAsync();
+    var memberOfTask = GraphHelper.GetMemberOfAsync();
+    var ownedTask = GraphHelper.GetOwnedObjectsAsync();
+
+    await Task.WhenAll(userTask, memberOfTask, ownedTask);
+
+    var user = await userTask;
+    Console.WriteLine($"User: {user?.DisplayName} <{user?.UserPrincipalName}>");
+
+    Console.WriteLine("\nMember of:");
+    foreach (var obj in (await memberOfTask)?.Value ?? [])
+        Console.WriteLine($"  - {Describe(obj)}");
+
+    Console.WriteLine("\nOwns:");
+    foreach (var obj in (await ownedTask)?.Value ?? [])
+        Console.WriteLine($"  - {Describe(obj)}");
 }
+
+string Describe(DirectoryObject obj) => obj switch
+{
+    DirectoryRole role => $"Role: {role.DisplayName} (template {role.RoleTemplateId})",
+    Group group => $"Group: {group.DisplayName}",
+    Application app => $"App: {app.DisplayName}",
+    _ => $"{obj.OdataType} ({obj.Id})"
+};
