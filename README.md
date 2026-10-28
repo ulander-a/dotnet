@@ -97,7 +97,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 - [x] [Microsoft Graph overview](https://learn.microsoft.com/en-us/graph/overview)
 - [x] [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) (try queries before writing code)
 - [x] [Microsoft Graph SDK overview](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview) · [Install a Microsoft Graph SDK](https://learn.microsoft.com/en-us/graph/sdks/sdk-installation)
-- [ ] [Build .NET apps with Microsoft Graph (delegated tutorial)](https://learn.microsoft.com/en-us/graph/tutorials/dotnet)
+- [x] [Build .NET apps with Microsoft Graph (delegated tutorial)](https://learn.microsoft.com/en-us/graph/tutorials/dotnet)
 - [ ] [Build .NET apps with Microsoft Graph and app-only auth](https://learn.microsoft.com/en-us/graph/tutorials/dotnet-app-only)
 - [ ] [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference)
 - [ ] Skim per workload: [Outlook mail](https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview) · [SharePoint sites](https://learn.microsoft.com/en-us/graph/api/resources/sharepoint) · [Teams](https://learn.microsoft.com/en-us/graph/teams-concept-overview)
