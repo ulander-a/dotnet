@@ -104,7 +104,7 @@ Official docs per day, in the intended order. Background: JS/Node + PHP + Linux 
 
 ### Day 9 — Integration day
 *Deliverable: the Day 7 protected API calls Graph on behalf of the signed-in user, stores data in Azure SQL, and runs on App Service using managed identity (no secrets in config).*
-- [ ] [OAuth 2.0 on-behalf-of flow](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow)
+- [x] [OAuth 2.0 on-behalf-of flow](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow)
 - [ ] [Configure a web API that calls web APIs (Microsoft.Identity.Web)](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-web-api-call-api-app-configuration)
 - [ ] [Key Azure services for developers](https://learn.microsoft.com/en-us/azure/developer/intro/azure-developer-key-services) (good checklist while wiring Azure + Graph together)
 
