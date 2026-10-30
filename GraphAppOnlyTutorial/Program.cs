@@ -53,20 +53,74 @@ while (choice != 0)
 
 void InitializeGraph(Settings settings)
 {
-    // TODO
+    GraphHelper.InitializeGraphForAppOnlyAuth(settings);
 }
 
 async Task DisplayAccessTokenAsync()
 {
-    // TODO
+    try
+    {
+        var appOnlyToken = await GraphHelper.GetAppOnlyTokenAsync();
+        Console.WriteLine($"App-only token: {appOnlyToken}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error getting app-only access token: {ex.Message}");
+    }
 }
 
 async Task ListUsersAsync()
 {
-    // TODO
+    try
+    {
+        var userPage = await GraphHelper.GetUsersAsync();
+
+        if (userPage?.Value == null)
+        {
+            Console.WriteLine("No results returned.");
+            return;
+        }
+
+        // Output each users's details
+        foreach (var user in userPage.Value)
+        {
+            Console.WriteLine($"User: {user.DisplayName ?? "NO NAME"}");
+            Console.WriteLine($"  ID: {user.Id}");
+            Console.WriteLine($"  Email: {user.Mail ?? "NO EMAIL"}");
+        }
+
+        // If NextPageRequest is not null, there are more users
+        // available on the server
+        // Access the next page like:
+        // var nextPageRequest = new UsersRequestBuilder(userPage.OdataNextLink, _appClient.RequestAdapter);
+        // var nextPage = await nextPageRequest.GetAsync();
+        var moreAvailable = !string.IsNullOrEmpty(userPage.OdataNextLink);
+
+        Console.WriteLine($"\nMore users available? {moreAvailable}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error getting users: {ex.Message}");
+    }
 }
 
 async Task MakeGraphCallAsync()
 {
-    // TODO
+    try
+    {
+        var groupPage = await GraphHelper.GetGroupsAsync();
+
+        if (groupPage?.Value == null)
+        {
+            Console.WriteLine("No results returned.");
+            return;
+        }
+
+        foreach (var group in groupPage.Value)
+            Console.WriteLine($"Group: {group.DisplayName ?? "NO NAME"} ({group.Id})");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error getting groups: {ex.Message}");
+    }
 }
