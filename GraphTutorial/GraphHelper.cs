@@ -11,7 +11,7 @@ class GraphHelper
     private static Settings? settings;
 
     // User auth token credential
-    private static DeviceCodeCredential? deviceCodeCredential;
+    private static InteractiveBrowserCredential? interactiveCredential;
 
     // Client configured with user authentication
     private static GraphServiceClient? userClient;
@@ -22,22 +22,22 @@ class GraphHelper
     {
         GraphHelper.settings = settings;
 
-        var options = new DeviceCodeCredentialOptions
+        var options = new InteractiveBrowserCredentialOptions
         {
             ClientId = settings.ClientId,
             TenantId = settings.TenantId,
-            DeviceCodeCallback = deviceCodePrompt,
+            RedirectUri = new Uri("http://localhost"),
         };
 
-        deviceCodeCredential = new DeviceCodeCredential(options);
+        interactiveCredential = new InteractiveBrowserCredential(options);
 
-        userClient = new GraphServiceClient(deviceCodeCredential, settings.GraphUserScopes);
+        userClient = new GraphServiceClient(interactiveCredential, settings.GraphUserScopes);
     }
 
     public static async Task<string> GetUserTokenAsync()
     {
         // Ensure credential isn't null
-        if (deviceCodeCredential is null)
+        if (interactiveCredential is null)
             throw new NullReferenceException("Graph has not been initialized for user auth");
 
         // Ensure scopes isn't null
@@ -46,7 +46,7 @@ class GraphHelper
 
         // Request token with given scopes
         var context = new TokenRequestContext(settings.GraphUserScopes);
-        var response = await deviceCodeCredential.GetTokenAsync(context);
+        var response = await interactiveCredential.GetTokenAsync(context);
         return response.Token;
     }
 
@@ -135,5 +135,20 @@ class GraphHelper
             throw new NullReferenceException("Graph has not been initialized for user auth");
 
         return userClient.Me.OwnedObjects.GetAsync();
+    }
+
+    public static Task<UserCollectionResponse?> GetUsersAsync()
+    {
+        // Ensure client isn't null
+        if (userClient is null)
+            throw new NullReferenceException("Graph has not been initialized for user auth");
+
+        return userClient.Users.GetAsync((config) =>
+        {
+            // Only request specific properties
+            config.QueryParameters.Select = ["displayName", "userPrincipalName"];
+            /* Get at most 25 results */
+            config.QueryParameters.Top = 25;
+        });
     }
 }

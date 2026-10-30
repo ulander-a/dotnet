@@ -1,5 +1,4 @@
 ﻿using GraphTutorial;
-using Microsoft.Graph.Models;
 
 Console.WriteLine(".NET Graph Tutorial\n");
 
@@ -18,9 +17,7 @@ while (choice != 0)
     Console.WriteLine("Please choose one of the following options:");
     Console.WriteLine("0. Exit");
     Console.WriteLine("1. Display access token");
-    Console.WriteLine("2. List my inbox");
-    Console.WriteLine("3. Send mail");
-    Console.WriteLine("4. Make a Graph call");
+    Console.WriteLine("2. List users in my organization");
 
     try
     {
@@ -43,16 +40,8 @@ while (choice != 0)
             await DisplayAccessTokenAsync();
             break;
         case 2:
-            // List emails from user's inbox
-            await ListInboxAsync();
-            break;
-        case 3:
-            // Send an email message
-            await SendMailAsync();
-            break;
-        case 4:
-            // Run any Graph code
-            await MakeGraphCallAsync();
+            // List users in the organization
+            await ListUsersAsync();
             break;
         default:
             Console.WriteLine("Invalid choice! Please try again.");
@@ -104,95 +93,23 @@ async Task DisplayAccessTokenAsync()
     }
 }
 
-async Task ListInboxAsync()
+async Task ListUsersAsync()
 {
     try
     {
-        var messagePage = await GraphHelper.GetInboxAsync();
+        var userPage = await GraphHelper.GetUsersAsync();
 
-        if (messagePage?.Value == null)
+        if (userPage?.Value == null)
         {
             Console.WriteLine("No results returned.");
             return;
         }
 
-        // Output each message's details
-        foreach (var message in messagePage.Value)
-        {
-            Console.WriteLine($"Message: {message.Subject ?? "NO SUBJECT"}");
-            Console.WriteLine($"  From: {message.From?.EmailAddress?.Name}");
-            Console.WriteLine($"  Status: {(message.IsRead!.Value ? "Read" : "Unread")}");
-            Console.WriteLine($"  Received: {message.ReceivedDateTime?.ToLocalTime().ToString()}");
-        }
-
-        // If NextPageRequest is not null, there are more messages
-        // available on the server
-        // Access the next page like:
-        // var nextPageRequest = new MessagesRequestBuilder(messagePage.OdataNextLink, _userClient.RequestAdapter);
-        // var nextPage = await nextPageRequest.GetAsync();
-        var moreAvailable = !string.IsNullOrEmpty(messagePage.OdataNextLink);
-
-        Console.WriteLine($"\nMore messages available? {moreAvailable}");
+        foreach (var user in userPage.Value)
+            Console.WriteLine($"{user.DisplayName} <{user.UserPrincipalName}>");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Error getting user's inbox: {ex.Message}");
+        Console.WriteLine($"Error listing users: {ex.Message}");
     }
 }
-
-async Task SendMailAsync()
-{
-    try
-    {
-        // Send mail to the signed-in user
-        // Get the user for their email address
-        var user = await GraphHelper.GetUserAsync();
-
-        var userEmail = user?.Mail ?? user?.UserPrincipalName;
-
-        if (string.IsNullOrEmpty(userEmail))
-        {
-            Console.WriteLine("Couldn't get your email address, canceling...");
-            return;
-        }
-
-        await GraphHelper.SendMailAsync(
-            "Testing Microsoft Graph",
-            "Hello world!",
-            userEmail);
-
-        Console.WriteLine("Mail sent.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error sending mail: {ex.Message}");
-    }
-}
-
-async Task MakeGraphCallAsync()
-{
-    var userTask = GraphHelper.GetUserAsync();
-    var memberOfTask = GraphHelper.GetMemberOfAsync();
-    var ownedTask = GraphHelper.GetOwnedObjectsAsync();
-
-    await Task.WhenAll(userTask, memberOfTask, ownedTask);
-
-    var user = await userTask;
-    Console.WriteLine($"User: {user?.DisplayName} <{user?.UserPrincipalName}>");
-
-    Console.WriteLine("\nMember of:");
-    foreach (var obj in (await memberOfTask)?.Value ?? [])
-        Console.WriteLine($"  - {Describe(obj)}");
-
-    Console.WriteLine("\nOwns:");
-    foreach (var obj in (await ownedTask)?.Value ?? [])
-        Console.WriteLine($"  - {Describe(obj)}");
-}
-
-string Describe(DirectoryObject obj) => obj switch
-{
-    DirectoryRole role => $"Role: {role.DisplayName} (template {role.RoleTemplateId})",
-    Group group => $"Group: {group.DisplayName}",
-    Application app => $"App: {app.DisplayName}",
-    _ => $"{obj.OdataType} ({obj.Id})"
-};
